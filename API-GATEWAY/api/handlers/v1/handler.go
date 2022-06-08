@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/venomuz/project4/API-GATEWAY/config"
-	"github.com/venomuz/project4/API-GATEWAY/pkg/logger"
-	"github.com/venomuz/project4/API-GATEWAY/services"
+	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/config"
+	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/pkg/logger"
+	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/services"
 )
 
 type handlerV1 struct {

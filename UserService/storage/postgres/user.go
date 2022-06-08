@@ -3,7 +3,7 @@ package postgres
 import (
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
-	pb "github.com/venomuz/project4/UserService/genproto"
+	pb "github.com/venomuz/service-apiswag-post-user/UserService/genproto"
 	"log"
 )
 

@@ -3,13 +3,23 @@ package v1
 import (
 	"context"
 	"github.com/gin-gonic/gin"
-	pb "github.com/venomuz/project4/API-GATEWAY/genproto"
-	l "github.com/venomuz/project4/API-GATEWAY/pkg/logger"
+	_ "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/api/model"
+	pb "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/genproto"
+	l "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/pkg/logger"
 	"google.golang.org/protobuf/encoding/protojson"
 	"net/http"
 	"time"
 )
 
+// CreateUser creates users
+// @Summary      Create an account
+// @Description  This api is for creating user
+// @Tags         user
+// @Accept       json
+// @Produce      json
+// @Param 		 user  body model.Useri true "user body"
+// @Success      200  {string}  Ok
+// @Router       /v1/users [post]
 func (h *handlerV1) CreateUser(c *gin.Context) {
 	var (
 		jspbMarshal protojson.MarshalOptions

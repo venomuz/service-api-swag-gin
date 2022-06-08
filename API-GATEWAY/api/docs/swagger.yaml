@@ -1,0 +1,67 @@
+definitions:
+  model.Address:
+    properties:
+      city:
+        type: string
+      country:
+        type: string
+      district:
+        type: string
+      id:
+        type: string
+      postal_code:
+        type: integer
+      user_id:
+        type: string
+    type: object
+  model.Useri:
+    properties:
+      address:
+        $ref: '#/definitions/model.Address'
+      bio:
+        type: string
+      email:
+        items:
+          type: string
+        type: array
+      first_name:
+        type: string
+      id:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        items:
+          type: string
+        type: array
+      status:
+        type: boolean
+      type_id:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /v1/users:
+    post:
+      consumes:
+      - application/json
+      description: This api is for creating user
+      parameters:
+      - description: user body
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.Useri'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Create an account
+      tags:
+      - user
+swagger: "2.0"

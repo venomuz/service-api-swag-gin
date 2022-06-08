@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/venomuz/project4/UserService/config"
-	pb "github.com/venomuz/project4/UserService/genproto"
-	"github.com/venomuz/project4/UserService/pkg/db"
-	"github.com/venomuz/project4/UserService/pkg/logger"
-	"github.com/venomuz/project4/UserService/service"
-	grpcClient "github.com/venomuz/project4/UserService/service/grpc_client"
+	"github.com/venomuz/service-apiswag-post-user/UserService/config"
+	pb "github.com/venomuz/service-apiswag-post-user/UserService/genproto"
+	"github.com/venomuz/service-apiswag-post-user/UserService/pkg/db"
+	"github.com/venomuz/service-apiswag-post-user/UserService/pkg/logger"
+	"github.com/venomuz/service-apiswag-post-user/UserService/service"
+	grpcClient "github.com/venomuz/service-apiswag-post-user/UserService/service/grpc_client"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"net"
