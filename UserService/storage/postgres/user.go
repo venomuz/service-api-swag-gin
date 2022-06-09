@@ -1,6 +1,7 @@
 package postgres
 
 import (
+	"fmt"
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
 	pb "github.com/venomuz/service-apiswag-post-user/UserService/genproto"
@@ -49,11 +50,11 @@ func (r *userRepo) GetByID(ID string) (*pb.Useri, error) {
 	return &user, nil
 }
 func (r *userRepo) DeleteByID(ID string) (*pb.GetIdFromUserID, error) {
-	_, err := r.db.Exec(`DELETE  FROM users WHERE id = $1`, ID)
+	id := pb.GetIdFromUserID{}
+	err := r.db.QueryRow(`DELETE  FROM users WHERE id = $1 RETURNING id`, ID).Scan(&id.Id)
 	if err != nil {
 		log.Panicf("%s\n%s", "Error while deleteing data from table users", err)
 	}
-	id := pb.GetIdFromUserID{}
 
 	return &id, nil
 }
@@ -81,4 +82,38 @@ func (r *userRepo) GetAllUserFromDb(empty *pb.Empty) (*pb.AllUser, error) {
 	userss.Users = append(userss.Users, &user)
 
 	return &userss, nil
+}
+func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
+	offset := (page - 1) * limit
+	fmt.Println(offset, page, limit)
+	var userss pb.AllUser
+	user := pb.Useri{}
+	GetUsers := `SELECT id, first_name, last_name, email, bio, phone_number, type_id, status FROM users ORDER BY first_name OFFSET $1 LIMIT $2;`
+	rows, err := r.db.Query(GetUsers, offset, limit)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+		if err != nil {
+			return nil, err
+		}
+		addr := pb.Address{}
+		GetAddresses := `SELECT id,user_id, city, district, country, postal_code FROM addresses WHERE user_id = $1`
+		err = r.db.QueryRow(GetAddresses, user.Id).Scan(&addr.Id, &addr.UserId, &addr.City, &addr.District, &addr.Country, &addr.PostalCode)
+		if err != nil {
+			return nil, err
+		}
+		user.Address = &addr
+		userss.Users = append(userss.Users, &user)
+	}
+
+	var count int64
+	CountUsersQuery := `SELECT count(*) FROM users`
+	err = r.db.QueryRow(CountUsersQuery).Scan(&count)
+	if err != nil {
+		return nil, err
+	}
+
+	return &pb.LimitResponse{Users: userss.Users, AllUsers: count}, nil
 }

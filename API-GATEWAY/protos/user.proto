@@ -8,6 +8,7 @@ service UserService{
   rpc DeleteByID(GetIdFromUserID) returns (GetIdFromUserID);
   rpc GetAllByUserId(GetIdFromUser) returns (Post);
   rpc GetAllUserFromDb(Empty) returns (AllUser);
+  rpc GetList(LimitRequest) returns (LimitResponse);
 }
 
 message AllUser{
@@ -50,4 +51,12 @@ message Useri{
   bool status = 8;
   Address address = 9;
   repeated Post posts = 10;
+}
+message LimitRequest{
+  int64 page = 2;
+  int64 limit = 3;
+}
+message LimitResponse{
+  repeated Useri Users = 1;
+  int64 AllUsers = 2;
 }

@@ -51,7 +51,13 @@ func (h *handlerV1) CreateUser(c *gin.Context) {
 }
 
 // GetUser gets user by id
-// route /v1/users/{id} [get]
+// @Summary      Get an account
+// @Description  This api is for getting user
+// @Tags         user
+// @Produce      json
+// @Param        id   path      string  true  "Account ID"
+// @Success      200  {object}  model.Useri
+// @Router       /v1/users/{id} [get]
 func (h *handlerV1) GetUser(c *gin.Context) {
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
@@ -62,6 +68,35 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 
 	response, err := h.serviceManager.UserService().GetByID(
 		ctx, &pb.GetIdFromUser{Id: guid})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to get user", l.Error(err))
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
+}
+
+// DeleteUser delete user by id
+// @Summary      Delete an account
+// @Description  This api is for delete user
+// @Tags         user
+// @Produce      json
+// @Param        id   path      string  true  "Account ID"
+// @Success      200  {object}  model.Id
+// @Router       /v1/users/{id} [delete]
+func (h *handlerV1) DeleteUser(c *gin.Context) {
+	var jspbMarshal protojson.MarshalOptions
+	jspbMarshal.UseProtoNames = true
+
+	guid := c.Param("id")
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
+	defer cancel()
+
+	response, err := h.serviceManager.UserService().DeleteByID(
+		ctx, &pb.GetIdFromUserID{Id: guid})
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),

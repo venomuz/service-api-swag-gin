@@ -66,11 +66,14 @@ func (s *UserService) GetByID(ctx context.Context, req *pb.GetIdFromUser) (*pb.U
 	return user, err
 }
 func (s *UserService) DeleteByID(ctx context.Context, req *pb.GetIdFromUserID) (*pb.GetIdFromUserID, error) {
+
 	user, err := s.storage.User().DeleteByID(req.Id)
 	if err != nil {
 		s.logger.Error("Error while getting user info", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error insert user")
 	}
+
+	_, err = s.client.PostService().PostDeleteByID(ctx, &pb.GetIdFromUser{Id: user.Id})
 	return user, err
 }
 func (s *UserService) GetAllByUserId(ctx context.Context, req *pb.GetIdFromUser) (*pb.Post, error) {
@@ -85,6 +88,31 @@ func (s *UserService) GetAllByUserId(ctx context.Context, req *pb.GetIdFromUser)
 }
 func (s *UserService) GetAllUserFromDb(ctx context.Context, req *pb.Empty) (*pb.AllUser, error) {
 	users, err := s.storage.User().GetAllUserFromDb(req)
+	if err != nil {
+		fmt.Println(err)
+		s.logger.Error("Error while getting post info", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert post")
+	}
+
+	user := users.Users
+	for _, usr := range user {
+		aa := pb.GetIdFromUser{}
+		aa.Id = usr.Id
+		post, err := s.client.PostService().PostGetAllPosts(ctx, &aa)
+		if err != nil {
+			fmt.Println(err)
+			s.logger.Error("Error while getting post info", l.Error(err))
+			return nil, status.Error(codes.Internal, "Error insert post")
+		}
+		usr.Posts = post.Posts
+
+	}
+	users.Users = user
+
+	return users, err
+}
+func (s *UserService) GetList(ctx context.Context, req *pb.LimitRequest) (*pb.LimitResponse, error) {
+	users, err := s.storage.User().GetList(req.Page, req.Limit)
 	if err != nil {
 		fmt.Println(err)
 		s.logger.Error("Error while getting post info", l.Error(err))

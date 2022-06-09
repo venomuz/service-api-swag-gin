@@ -37,6 +37,62 @@
                     }
                 }
             }
+        },
+        "/v1/users/{id}": {
+            "get": {
+                "description": "This api is for getting user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get an account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Account ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Useri"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This api is for delete user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Account ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Id"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -57,6 +113,54 @@
                 },
                 "postal_code": {
                     "type": "integer"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Id": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Media": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "post_id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Post": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "medias": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Media"
+                    }
+                },
+                "name": {
+                    "type": "string"
                 },
                 "user_id": {
                     "type": "string"
@@ -91,6 +195,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
+                    }
+                },
+                "posts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Post"
                     }
                 },
                 "status": {

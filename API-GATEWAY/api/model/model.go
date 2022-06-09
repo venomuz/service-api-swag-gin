@@ -10,6 +10,7 @@ type Useri struct {
 	TypeId      int64    `json:"type_id"`
 	Status      bool     `json:"status"`
 	Address     Address  `json:"address"`
+	Posts       []*Post
 }
 type Address struct {
 	Id         string `json:"id"`
@@ -18,4 +19,20 @@ type Address struct {
 	City       string `json:"city"`
 	District   string `json:"district"`
 	PostalCode int64  `json:"postal_code"`
+}
+type Post struct {
+	Id          string   `json:"id"`
+	Name        string   `json:"name"`
+	Description string   `json:"description"`
+	UserId      string   `json:"user_id"`
+	Medias      []*Media `json:"medias"`
+}
+type Media struct {
+	Id     string `json:"id"`
+	PostId string `json:"post_id"`
+	Type   string `json:"type"`
+	Link   string `json:"link"`
+}
+type Id struct {
+	Id string `json:"id"`
 }
