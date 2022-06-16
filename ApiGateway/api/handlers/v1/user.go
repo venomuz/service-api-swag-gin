@@ -144,7 +144,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to create user", l.Error(err))
+		h.log.Error("failed to check user", l.Error(err))
 		return
 	}
 	num := rand.Intn(999999)
@@ -158,6 +158,22 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 			return
 		}
 	}
-	h.redisStorage.Set(string(num))
+	//info, err := json.Marshal(body)
+	//if err != nil {
+	//	c.JSON(http.StatusInternalServerError, gin.H{
+	//		"error": err.Error(),
+	//	})
+	//	h.log.Error("failed to marshal user", l.Error(err))
+	//	return
+	//}
+
+	err = h.redisStorage.Set(string(num), body.String())
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to setting to redis user", l.Error(err))
+		return
+	}
 	c.JSON(http.StatusCreated, response)
 }
