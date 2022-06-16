@@ -18,11 +18,12 @@ func NewUserRepo(db *sqlx.DB) *userRepo {
 }
 
 func (r *userRepo) Create(user *pb.Useri) (*pb.Useri, error) {
-	UserQuery := `INSERT INTO users(id,first_name,last_name,email,bio,phone_number,type_id,status) VALUES($1,$2,$3,$4,$5,$6,$7,$8)`
-	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, pq.Array(user.Email), user.Bio, pq.Array(user.PhoneNumber), user.TypeId, user.Status)
+	UserQuery := `INSERT INTO users(id,first_name,last_name,login,email,bio,phone_number,type_id,status) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`
+	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, &user.Login, pq.Array(user.Email), user.Bio, pq.Array(user.PhoneNumber), user.TypeId, user.Status)
 	if err != nil {
 		log.Panicf("%s\n%s", "Error while users to table addresses", err)
 	}
+	fmt.Println("")
 	AddressQuery := `INSERT INTO addresses(id,user_id,country,city,district,postal_code) VALUES($1,$2,$3,$4,$5,$6)`
 
 	_, err = r.db.Exec(AddressQuery, user.Address.Id, user.Id, user.Address.Country, user.Address.City, user.Address.District, user.Address.PostalCode)
@@ -34,8 +35,8 @@ func (r *userRepo) Create(user *pb.Useri) (*pb.Useri, error) {
 }
 func (r *userRepo) GetByID(ID string) (*pb.Useri, error) {
 	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, email, bio, phone_number, type_id, status FROM users WHERE id = $1`
-	err := r.db.QueryRow(GetUsers, ID).Scan(&user.Id, &user.FirstName, &user.LastName, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users WHERE id = $1`
+	err := r.db.QueryRow(GetUsers, ID).Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
 	if err != nil {
 		return nil, err
 	}
@@ -61,13 +62,13 @@ func (r *userRepo) DeleteByID(ID string) (*pb.GetIdFromUserID, error) {
 func (r *userRepo) GetAllUserFromDb(empty *pb.Empty) (*pb.AllUser, error) {
 	var userss pb.AllUser
 	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, email, bio, phone_number, type_id, status FROM users;`
+	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users;`
 	rows, err := r.db.Query(GetUsers)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
 		if err != nil {
 			return nil, err
 		}
@@ -88,13 +89,13 @@ func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
 	fmt.Println(offset, page, limit)
 	var userss pb.AllUser
 	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, email, bio, phone_number, type_id, status FROM users ORDER BY first_name OFFSET $1 LIMIT $2;`
+	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users ORDER BY first_name OFFSET $1 LIMIT $2;`
 	rows, err := r.db.Query(GetUsers, offset, limit)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
 		if err != nil {
 			return nil, err
 		}
@@ -116,4 +117,21 @@ func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
 	}
 
 	return &pb.LimitResponse{Users: userss.Users, AllUsers: count}, nil
+}
+func (r *userRepo) CheckValidLoginMail(key, value string) (bool, error) {
+	c := 0
+	if key == "login" {
+		Checkquery := `SELECT COUNT(1) FROM users WHERE login = $1`
+		err := r.db.QueryRow(Checkquery, value).Scan(&c)
+		if c > 0 || err != nil {
+			return true, err
+		}
+	} else if key == "email" {
+		Checkquery := `SELECT COUNT(1) FROM users WHERE email = $1`
+		err := r.db.QueryRow(Checkquery, value).Scan(&c)
+		if c > 0 || err != nil {
+			return true, err
+		}
+	}
+	return false, nil
 }

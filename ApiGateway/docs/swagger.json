@@ -38,40 +38,6 @@
                 }
             }
         },
-        "/v1/users/check": {
-            "post": {
-                "description": "This api is for creating user",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "Create an account with check",
-                "parameters": [
-                    {
-                        "description": "user body",
-                        "name": "user",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.Useri"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "/v1/users/{id}": {
             "get": {
                 "description": "This api is for getting user",

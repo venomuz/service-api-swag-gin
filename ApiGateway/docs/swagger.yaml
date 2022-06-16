@@ -136,26 +136,4 @@ paths:
       summary: Get an account
       tags:
       - user
-  /v1/users/check:
-    post:
-      consumes:
-      - application/json
-      description: This api is for creating user
-      parameters:
-      - description: user body
-        in: body
-        name: user
-        required: true
-        schema:
-          $ref: '#/definitions/model.Useri'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-      summary: Create an account with check
-      tags:
-      - user
 swagger: "2.0"

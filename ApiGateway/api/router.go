@@ -9,12 +9,14 @@ import (
 	"github.com/venomuz/service_api_swag_gin/ApiGateway/config"
 	"github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
 	"github.com/venomuz/service_api_swag_gin/ApiGateway/services"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/storage/repo"
 )
 
 type Option struct {
 	Conf           config.Config
 	Logger         logger.Logger
 	ServiceManager services.IServiceManager
+	RedisRepo      repo.RepositoryStorage
 }
 
 func New(option Option) *gin.Engine {
@@ -27,12 +29,14 @@ func New(option Option) *gin.Engine {
 		Logger:         option.Logger,
 		ServiceManager: option.ServiceManager,
 		Cfg:            option.Conf,
+		Redis:          option.RedisRepo,
 	})
 
 	api := router.Group("/v1")
 	api.POST("/users", handlerV1.CreateUser)
 	api.GET("/users/:id", handlerV1.GetUser)
 	api.DELETE("/users/:id", handlerV1.DeleteUser)
+	api.POST("/users/check", handlerV1.CheckReg)
 	// api.GET("/users", handlerV1.ListUsers)
 	// api.PUT("/users/:id", handlerV1.UpdateUser)
 	// api.DELETE("/users/:id", handlerV1.DeleteUser)

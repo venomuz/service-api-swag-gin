@@ -36,3 +36,7 @@ type Media struct {
 type Id struct {
 	Id string `json:"id"`
 }
+type Check struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
+}

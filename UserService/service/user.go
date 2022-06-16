@@ -136,3 +136,12 @@ func (s *UserService) GetList(ctx context.Context, req *pb.LimitRequest) (*pb.Li
 
 	return users, err
 }
+func (s *UserService) CheckLoginMail(ctx context.Context, check *pb.Check) (*pb.Okay, error) {
+	get, err := s.storage.User().CheckValidLoginMail(check.Key, check.Value)
+	if err != nil {
+		fmt.Println(err)
+		s.logger.Error("Error while getting post info", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert post")
+	}
+	return &pb.Okay{Status: get}, err
+}
