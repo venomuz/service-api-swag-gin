@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq" //postgres drivers
-	"github.com/venomuz/service-apiswag-post-user/UserService/config"
+	"github.com/venomuz/service_api_swag_gin/UserService/config"
 )
 
 func ConnectToDB(cfg config.Config) (*sqlx.DB, error) {

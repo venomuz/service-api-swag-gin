@@ -1,4 +1,4 @@
-module github.com/venomuz/service-apiswag-post-user/UserService
+module github.com/venomuz/service_api_swag_gin/UserService
 
 go 1.18
 

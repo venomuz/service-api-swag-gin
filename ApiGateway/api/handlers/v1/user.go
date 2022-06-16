@@ -3,9 +3,9 @@ package v1
 import (
 	"context"
 	"github.com/gin-gonic/gin"
-	_ "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/api/model"
-	pb "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/genproto"
-	l "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/pkg/logger"
+	_ "github.com/venomuz/service_api_swag_gin/ApiGateway/api/model"
+	pb "github.com/venomuz/service_api_swag_gin/ApiGateway/genproto"
+	l "github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
 	"google.golang.org/protobuf/encoding/protojson"
 	"net/http"
 	"time"

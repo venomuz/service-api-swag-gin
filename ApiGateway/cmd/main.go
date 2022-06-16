@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/api"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/config"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/pkg/logger"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/services"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/api"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/config"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/services"
 )
 
 func main() {

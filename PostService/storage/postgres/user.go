@@ -2,7 +2,7 @@ package postgres
 
 import (
 	"github.com/jmoiron/sqlx"
-	pb "github.com/venomuz/service-apiswag-post-user/PostService/genproto"
+	pb "github.com/venomuz/service_api_swag_gin/PostService/genproto"
 )
 
 type postRepo struct {

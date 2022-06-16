@@ -4,11 +4,11 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	_ "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/api/docs"
-	v1 "github.com/venomuz/service-apiswag-post-user/API-GATEWAY/api/handlers/v1"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/config"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/pkg/logger"
-	"github.com/venomuz/service-apiswag-post-user/API-GATEWAY/services"
+	_ "github.com/venomuz/service_api_swag_gin/ApiGateway/api/docs"
+	v1 "github.com/venomuz/service_api_swag_gin/ApiGateway/api/handlers/v1"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/config"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
+	"github.com/venomuz/service_api_swag_gin/ApiGateway/services"
 )
 
 type Option struct {
