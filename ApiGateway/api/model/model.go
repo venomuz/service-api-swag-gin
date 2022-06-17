@@ -4,6 +4,7 @@ type Useri struct {
 	Id          string   `json:"id"`
 	FirstName   string   `json:"first_name"`
 	LastName    string   `json:"last_name"`
+	Login       string   `json:"login"`
 	Email       []string `json:"email"`
 	Bio         string   `json:"bio"`
 	PhoneNumber []string `json:"phone_number"`
@@ -39,4 +40,7 @@ type Id struct {
 type Check struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
+}
+type Code struct {
+	Codd string `json:"code"`
 }

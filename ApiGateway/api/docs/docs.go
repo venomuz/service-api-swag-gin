@@ -84,6 +84,35 @@ const docTemplate = `{
                 }
             }
         },
+        "/v1/users/verify/{code}": {
+            "post": {
+                "description": "This api is for Create user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Create an account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Verify Code",
+                        "name": "code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Code"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/users/{id}": {
             "get": {
                 "description": "This api is for getting user",
@@ -165,6 +194,14 @@ const docTemplate = `{
                 }
             }
         },
+        "model.Code": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                }
+            }
+        },
         "model.Id": {
             "type": "object",
             "properties": {
@@ -235,6 +272,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "last_name": {
+                    "type": "string"
+                },
+                "login": {
                     "type": "string"
                 },
                 "phone_number": {

@@ -37,6 +37,7 @@ func New(option Option) *gin.Engine {
 	api.GET("/users/:id", handlerV1.GetUser)
 	api.DELETE("/users/:id", handlerV1.DeleteUser)
 	api.POST("/users/check", handlerV1.CheckReg)
+	api.POST("/users/verify/:code", handlerV1.Verify)
 	// api.GET("/users", handlerV1.ListUsers)
 	// api.PUT("/users/:id", handlerV1.UpdateUser)
 	// api.DELETE("/users/:id", handlerV1.DeleteUser)

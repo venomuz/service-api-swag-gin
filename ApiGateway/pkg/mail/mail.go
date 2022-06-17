@@ -5,9 +5,9 @@ import (
 	gomail "gopkg.in/mail.v2"
 )
 
-func SendMail(num int32, mail string) error {
+func SendMail(num string, mail string) error {
 	m := gomail.NewMessage()
-
+	num = "Your code: " + num
 	// Set E-Mail sender
 	m.SetHeader("From", "davronmause@gmail.com")
 
@@ -18,10 +18,10 @@ func SendMail(num int32, mail string) error {
 	m.SetHeader("Subject", "Gomail test subject")
 
 	// Set E-Mail body. You can set plain text or html with text/html
-	m.SetBody("text/plain", string(num))
+	m.SetBody("text/plain", num)
 
 	// Settings for SMTP server
-	d := gomail.NewDialer("smtp.gmail.com", 587, "davronmause@gmail.com", "password")
+	d := gomail.NewDialer("smtp.gmail.com", 587, "davronmause@gmail.com", "euuhizaiucnbxujb")
 
 	// This is only needed when SSL/TLS certificate is not valid on server.
 	// In production this should be set to false.
