@@ -9,7 +9,7 @@ import (
 	pb "github.com/venomuz/service_api_swag_gin/ApiGateway/genproto"
 	l "github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
 	"github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/mail"
-	passwordvalidator "github.com/wagslane/go-password-validator"
+	pass "github.com/wagslane/go-password-validator"
 	"google.golang.org/protobuf/encoding/protojson"
 	"math/rand"
 	"net/http"
@@ -55,7 +55,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 	}
 
 	const minEntropyBits = 60
-	err = passwordvalidator.Validate(body.Password, minEntropyBits)
+	err = pass.Validate(body.Password, minEntropyBits)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
@@ -63,7 +63,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		h.log.Error("failed to valid password user", l.Error(err))
 		return
 	}
-	
+
 	num := rand.Intn(999999)
 	str := strconv.Itoa(num)
 	if response.Status == false {
