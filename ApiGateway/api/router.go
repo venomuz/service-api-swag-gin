@@ -38,9 +38,6 @@ func New(option Option) *gin.Engine {
 	api.DELETE("/users/:id", handlerV1.DeleteUser)
 	api.POST("/users/check", handlerV1.CheckReg)
 	api.POST("/users/verify/:code", handlerV1.Verify)
-	// api.GET("/users", handlerV1.ListUsers)
-	// api.PUT("/users/:id", handlerV1.UpdateUser)
-	// api.DELETE("/users/:id", handlerV1.DeleteUser)
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.Run()
 	return router

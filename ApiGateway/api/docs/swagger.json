@@ -24,7 +24,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 ],
@@ -58,7 +58,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 ],
@@ -124,7 +124,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 }
@@ -238,7 +238,7 @@
                 }
             }
         },
-        "model.Useri": {
+        "model.User": {
             "type": "object",
             "properties": {
                 "address": {
@@ -248,10 +248,7 @@
                     "type": "string"
                 },
                 "email": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 },
                 "first_name": {
                     "type": "string"
@@ -265,11 +262,11 @@
                 "login": {
                     "type": "string"
                 },
+                "password": {
+                    "type": "string"
+                },
                 "phone_number": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 },
                 "posts": {
                     "type": "array",

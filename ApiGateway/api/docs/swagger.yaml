@@ -50,16 +50,14 @@ definitions:
       user_id:
         type: string
     type: object
-  model.Useri:
+  model.User:
     properties:
       address:
         $ref: '#/definitions/model.Address'
       bio:
         type: string
       email:
-        items:
-          type: string
-        type: array
+        type: string
       first_name:
         type: string
       id:
@@ -68,10 +66,10 @@ definitions:
         type: string
       login:
         type: string
+      password:
+        type: string
       phone_number:
-        items:
-          type: string
-        type: array
+        type: string
       posts:
         items:
           $ref: '#/definitions/model.Post'
@@ -95,7 +93,7 @@ paths:
         name: user
         required: true
         schema:
-          $ref: '#/definitions/model.Useri'
+          $ref: '#/definitions/model.User'
       produces:
       - application/json
       responses:
@@ -139,7 +137,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/model.Useri'
+            $ref: '#/definitions/model.User'
       summary: Get an account
       tags:
       - user
@@ -154,7 +152,7 @@ paths:
         name: user
         required: true
         schema:
-          $ref: '#/definitions/model.Useri'
+          $ref: '#/definitions/model.User'
       produces:
       - application/json
       responses:

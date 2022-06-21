@@ -3,8 +3,8 @@ package user;
 import "post.proto";
 
 service UserService{
-  rpc Create(Useri) returns (Useri);
-  rpc GetByID(GetIdFromUser) returns (Useri);
+  rpc Create(User) returns (User);
+  rpc GetByID(GetIdFromUser) returns (User);
   rpc DeleteByID(GetIdFromUserID) returns (GetIdFromUserID);
   rpc GetAllByUserId(GetIdFromUser) returns (Post);
   rpc GetAllUserFromDb(Empty) returns (AllUser);
@@ -13,20 +13,21 @@ service UserService{
 }
 
 message AllUser{
-  repeated Useri Users = 1;
+  repeated User Users = 1;
 }
-message Useri{
+message User{
   string id = 1;
   string first_name = 2;
   string last_name = 3;
   string login = 4;
-  repeated string email = 5;
-  string bio = 6;
-  repeated string phone_number = 7;
-  int64 type_id = 8;
-  bool status = 9;
-  Address address = 10;
-  repeated Post posts = 11;
+  string password = 5;
+  string email = 6;
+  string bio = 7;
+  string phone_number = 8;
+  int64 type_id = 9;
+  bool status = 10;
+  Address address = 11;
+  repeated Post posts = 12;
 }
 message Address{
   string id = 1;
@@ -51,7 +52,7 @@ message LimitRequest{
   int64 limit = 3;
 }
 message LimitResponse{
-  repeated Useri Users = 1;
+  repeated User Users = 1;
   int64 AllUsers = 2;
 }
 message okay {

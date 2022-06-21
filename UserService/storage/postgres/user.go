@@ -3,7 +3,6 @@ package postgres
 import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
-	"github.com/lib/pq"
 	pb "github.com/venomuz/service_api_swag_gin/UserService/genproto"
 	"log"
 )
@@ -17,9 +16,9 @@ func NewUserRepo(db *sqlx.DB) *userRepo {
 	return &userRepo{db: db}
 }
 
-func (r *userRepo) Create(user *pb.Useri) (*pb.Useri, error) {
-	UserQuery := `INSERT INTO users(id,first_name,last_name,login,email,bio,phone_number,type_id,status) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`
-	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, &user.Login, pq.Array(user.Email), user.Bio, pq.Array(user.PhoneNumber), user.TypeId, user.Status)
+func (r *userRepo) Create(user *pb.User) (*pb.User, error) {
+	UserQuery := `INSERT INTO users(id,first_name,last_name,login,password,email,bio,phone_number,type_id,status) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`
+	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, &user.Login, &user.Password, user.Email, user.Bio, user.PhoneNumber, user.TypeId, user.Status)
 	if err != nil {
 		log.Panicf("%s\n%s", "Error while users to table addresses", err)
 	}
@@ -33,10 +32,10 @@ func (r *userRepo) Create(user *pb.Useri) (*pb.Useri, error) {
 
 	return user, nil
 }
-func (r *userRepo) GetByID(ID string) (*pb.Useri, error) {
-	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users WHERE id = $1`
-	err := r.db.QueryRow(GetUsers, ID).Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+func (r *userRepo) GetByID(ID string) (*pb.User, error) {
+	user := pb.User{}
+	GetUsers := `SELECT id, first_name, last_name, login, password, email, bio, phone_number, type_id, status FROM users WHERE id = $1`
+	err := r.db.QueryRow(GetUsers, ID).Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, &user.Password, &user.Email, &user.Bio, &user.PhoneNumber, &user.TypeId, &user.Status)
 	if err != nil {
 		return nil, err
 	}
@@ -60,15 +59,15 @@ func (r *userRepo) DeleteByID(ID string) (*pb.GetIdFromUserID, error) {
 	return &id, nil
 }
 func (r *userRepo) GetAllUserFromDb(empty *pb.Empty) (*pb.AllUser, error) {
-	var userss pb.AllUser
-	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users;`
+	var users pb.AllUser
+	user := pb.User{}
+	GetUsers := `SELECT id, first_name, last_name, login, password, email, bio, phone_number, type_id, status FROM users;`
 	rows, err := r.db.Query(GetUsers)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, &user.Password, &user.Email, &user.Bio, &user.PhoneNumber, &user.TypeId, &user.Status)
 		if err != nil {
 			return nil, err
 		}
@@ -80,22 +79,22 @@ func (r *userRepo) GetAllUserFromDb(empty *pb.Empty) (*pb.AllUser, error) {
 		}
 		user.Address = &addr
 	}
-	userss.Users = append(userss.Users, &user)
+	users.Users = append(users.Users, &user)
 
-	return &userss, nil
+	return &users, nil
 }
 func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
 	offset := (page - 1) * limit
 	fmt.Println(offset, page, limit)
 	var userss pb.AllUser
-	user := pb.Useri{}
-	GetUsers := `SELECT id, first_name, last_name, login, email, bio, phone_number, type_id, status FROM users ORDER BY first_name OFFSET $1 LIMIT $2;`
+	user := pb.User{}
+	GetUsers := `SELECT id, first_name, last_name, login, password, email, bio, phone_number, type_id, status FROM users ORDER BY first_name OFFSET $1 LIMIT $2;`
 	rows, err := r.db.Query(GetUsers, offset, limit)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, pq.Array(&user.Email), &user.Bio, pq.Array(&user.PhoneNumber), &user.TypeId, &user.Status)
+		err := rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Login, &user.Password, &user.Email, &user.Bio, &user.PhoneNumber, &user.TypeId, &user.Status)
 		if err != nil {
 			return nil, err
 		}
@@ -121,14 +120,14 @@ func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
 func (r *userRepo) CheckValidLoginMail(key, value string) (bool, error) {
 	c := 0
 	if key == "login" {
-		Checkquery := `SELECT COUNT(1) FROM users WHERE login = $1`
-		err := r.db.QueryRow(Checkquery, value).Scan(&c)
+		CheckQuery := `SELECT COUNT(1) FROM users WHERE login = $1`
+		err := r.db.QueryRow(CheckQuery, value).Scan(&c)
 		if c > 0 || err != nil {
 			return true, err
 		}
 	} else if key == "email" {
-		Checkquery := `SELECT COUNT(1) FROM users WHERE email = $1`
-		err := r.db.QueryRow(Checkquery, value).Scan(&c)
+		CheckQuery := `SELECT COUNT(1) FROM users WHERE email = $1`
+		err := r.db.QueryRow(CheckQuery, value).Scan(&c)
 		if c > 0 || err != nil {
 			return true, err
 		}

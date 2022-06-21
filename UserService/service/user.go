@@ -29,7 +29,7 @@ func NewUserService(db *sqlx.DB, log l.Logger, client cl.GrpcClientI) *UserServi
 	}
 }
 
-func (s *UserService) Create(ctx context.Context, req *pb.Useri) (*pb.Useri, error) {
+func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error) {
 	id1 := uuid.NewV4()
 	id2 := uuid.NewV4()
 	req.Id = id1.String()
@@ -51,7 +51,7 @@ func (s *UserService) Create(ctx context.Context, req *pb.Useri) (*pb.Useri, err
 
 	return user, err
 }
-func (s *UserService) GetByID(ctx context.Context, req *pb.GetIdFromUser) (*pb.Useri, error) {
+func (s *UserService) GetByID(ctx context.Context, req *pb.GetIdFromUser) (*pb.User, error) {
 	user, err := s.storage.User().GetByID(req.Id)
 	if err != nil {
 		fmt.Println(err)

@@ -36,7 +36,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 ],
@@ -70,7 +70,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 ],
@@ -136,7 +136,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.Useri"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
                 }
@@ -250,7 +250,7 @@ const docTemplate = `{
                 }
             }
         },
-        "model.Useri": {
+        "model.User": {
             "type": "object",
             "properties": {
                 "address": {
@@ -260,10 +260,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "email": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 },
                 "first_name": {
                     "type": "string"
@@ -277,11 +274,11 @@ const docTemplate = `{
                 "login": {
                     "type": "string"
                 },
+                "password": {
+                    "type": "string"
+                },
                 "phone_number": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 },
                 "posts": {
                     "type": "array",
