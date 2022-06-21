@@ -18,7 +18,7 @@ func NewUserRepo(db *sqlx.DB) *userRepo {
 
 func (r *userRepo) Create(user *pb.User) (*pb.User, error) {
 	UserQuery := `INSERT INTO users(id,first_name,last_name,login,password,email,bio,phone_number,type_id,status) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`
-	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, &user.Login, &user.Password, user.Email, user.Bio, user.PhoneNumber, user.TypeId, user.Status)
+	_, err := r.db.Exec(UserQuery, user.Id, user.FirstName, user.LastName, user.Login, user.Password, user.Email, user.Bio, user.PhoneNumber, user.TypeId, user.Status)
 	if err != nil {
 		log.Panicf("%s\n%s", "Error while users to table addresses", err)
 	}
@@ -120,13 +120,13 @@ func (r *userRepo) GetList(page, limit int64) (*pb.LimitResponse, error) {
 func (r *userRepo) CheckValidLoginMail(key, value string) (bool, error) {
 	c := 0
 	if key == "login" {
-		CheckQuery := `SELECT COUNT(1) FROM users WHERE login = $1`
+		CheckQuery := `SELECT COUNT(*) FROM users WHERE login = $1`
 		err := r.db.QueryRow(CheckQuery, value).Scan(&c)
 		if c > 0 || err != nil {
 			return true, err
 		}
 	} else if key == "email" {
-		CheckQuery := `SELECT COUNT(1) FROM users WHERE email = $1`
+		CheckQuery := `SELECT COUNT(*) FROM users WHERE email = $1`
 		err := r.db.QueryRow(CheckQuery, value).Scan(&c)
 		if c > 0 || err != nil {
 			return true, err

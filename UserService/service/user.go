@@ -9,6 +9,7 @@ import (
 	l "github.com/venomuz/service_api_swag_gin/UserService/pkg/logger"
 	cl "github.com/venomuz/service_api_swag_gin/UserService/service/grpc_client"
 	"github.com/venomuz/service_api_swag_gin/UserService/storage"
+	"golang.org/x/crypto/bcrypt"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -29,11 +30,24 @@ func NewUserService(db *sqlx.DB, log l.Logger, client cl.GrpcClientI) *UserServi
 	}
 }
 
+func HashPassword(password string) (string, error) {
+	pw := []byte(password)
+	result, err := bcrypt.GenerateFromPassword(pw, bcrypt.DefaultCost)
+	if err != nil {
+		return "", err
+	}
+	return string(result), nil
+}
+
 func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error) {
-	id1 := uuid.NewV4()
-	id2 := uuid.NewV4()
-	req.Id = id1.String()
-	req.Address.Id = id2.String()
+	req.Id = uuid.NewV4().String()
+	req.Address.Id = uuid.NewV4().String()
+	passReq, err := HashPassword(req.Password)
+	if err != nil {
+		s.logger.Error("Error while Encrypt user password", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert user")
+	}
+	req.Password = passReq
 	user, err := s.storage.User().Create(req)
 	if err != nil {
 		s.logger.Error("Error while inserting user info", l.Error(err))
@@ -41,7 +55,7 @@ func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error
 	}
 
 	for _, posts := range user.Posts {
-		posts.UserId = id1.String()
+		posts.UserId = req.Id
 		post, err := s.client.PostService().PostCreate(ctx, posts)
 		if err != nil {
 			return nil, err
@@ -136,7 +150,7 @@ func (s *UserService) GetList(ctx context.Context, req *pb.LimitRequest) (*pb.Li
 
 	return users, err
 }
-func (s *UserService) CheckLoginMail(ctx context.Context, check *pb.Check) (*pb.Okay, error) {
+func (s *UserService) CheckLoginMail(_ context.Context, check *pb.Check) (*pb.Okay, error) {
 	get, err := s.storage.User().CheckValidLoginMail(check.Key, check.Value)
 	if err != nil {
 		fmt.Println(err)

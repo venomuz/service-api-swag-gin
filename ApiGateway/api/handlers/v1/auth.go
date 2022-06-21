@@ -54,6 +54,15 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		return
 	}
 
+	response, err = h.serviceManager.UserService().CheckLoginMail(ctx, &pb.Check{Key: "email", Value: body.Email})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to check user", l.Error(err))
+		return
+	}
+
 	const minEntropyBits = 60
 	err = pass.Validate(body.Password, minEntropyBits)
 	if err != nil {
@@ -106,8 +115,8 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 // @Router       /v1/users/verify/{code} [post]
 func (h *handlerV1) Verify(c *gin.Context) {
 	body := pb.User{}
-	var jspbMarshal protojson.MarshalOptions
-	jspbMarshal.UseProtoNames = true
+	var JsMarshal protojson.MarshalOptions
+	JsMarshal.UseProtoNames = true
 	code := c.Param("code")
 	res, err := h.redisStorage.Get(code)
 	if err != nil {
