@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fbf40c-650c-444b-b342-e9ecbb4dae4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/genproto/post.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/genproto/user.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/service/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/repo/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/migration/000001_first_migrate.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/migration/000001_first_migrate.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/migration/000002_type_changes.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/migration/000002_type_changes.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

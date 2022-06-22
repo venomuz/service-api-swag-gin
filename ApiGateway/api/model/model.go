@@ -45,3 +45,7 @@ type Check struct {
 type Code struct {
 	Codd string `json:"code"`
 }
+type Login struct {
+	EmailAddress string `json:"email_address"`
+	Password     string `json:"password"`
+}
