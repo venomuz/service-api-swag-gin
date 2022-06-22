@@ -2,7 +2,7 @@ package redis
 
 import (
 	redis "github.com/gomodule/redigo/redis"
-	"github.com/venomuz/service_api_swag_gin/ApiGateway/storage/repo"
+	"github.com/venomuz/service-api-swag-gin/ApiGateway/storage/repo"
 )
 
 type redisRepo struct {

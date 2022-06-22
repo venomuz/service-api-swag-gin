@@ -1,8 +1,8 @@
 package jwt
 
 import (
-	"github.com/golang-jwt/jwt/v4"
-	"github.com/venomuz/service_api_swag_gin/ApiGateway/pkg/logger"
+	"github.com/dgrijalva/jwt-go"
+	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"time"
 )
 
@@ -19,7 +19,7 @@ type JwtHendler struct {
 }
 
 //GenerateAuthJWT ...
-func (JwtHendler *JwtHendler) GenerateAuthJWT() (access, refresh string, err error) {
+func (QjwtHendler *JwtHendler) GenerateAuthJWT() (access, refresh string, err error) {
 	var (
 		accessToken  *jwt.Token
 		refreshToken *jwt.Token
@@ -29,20 +29,21 @@ func (JwtHendler *JwtHendler) GenerateAuthJWT() (access, refresh string, err err
 	refreshToken = jwt.New(jwt.SigningMethodES256)
 
 	claims = accessToken.Claims.(jwt.MapClaims)
-	claims["iss"] = JwtHendler.Iss
-	claims["sub"] = JwtHendler.Sub
+	claims["iss"] = QjwtHendler.Iss
+	claims["sub"] = QjwtHendler.Sub
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
 	claims["iat"] = time.Now().Unix()
-	claims["role"] = JwtHendler.Role
-	claims["aud"] = JwtHendler.Aud
-	access, err = accessToken.SignedString([]byte(JwtHendler.SigninKey))
+	claims["role"] = QjwtHendler.Role
+	claims["aud"] = QjwtHendler.Aud
+	access, err = accessToken.SignedString([]byte(QjwtHendler.SigninKey))
 	if err != nil {
-		JwtHendler.Log.Error("error generating access token", logger.Error(err))
+		QjwtHendler.Log.Error("error generating access token", logger.Error(err))
 		return
 	}
-	refresh, err = refreshToken.SignedString([]byte(JwtHendler.SigninKey))
+	refresh, err = refreshToken.SignedString([]byte(QjwtHendler.SigninKey))
 	if err != nil {
-		JwtHendler.Log.Error("error generating refresh token", logger.Error(err))
+		QjwtHendler.Log.Error("error generating refresh token", logger.Error(err))
 		return
 	}
+	return access, refresh, nil
 }
