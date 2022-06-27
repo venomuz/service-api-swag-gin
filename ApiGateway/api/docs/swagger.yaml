@@ -82,6 +82,30 @@ definitions:
 info:
   contact: {}
 paths:
+  /users/login:
+    get:
+      description: This api is for login user
+      parameters:
+      - description: Your mail for login
+        in: path
+        name: Email
+        required: true
+        type: string
+      - description: Your password for login
+        in: path
+        name: Password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Code'
+      summary: Logging to account
+      tags:
+      - auth
   /v1/users:
     post:
       consumes:
@@ -162,7 +186,7 @@ paths:
             type: string
       summary: Create an account with check
       tags:
-      - user
+      - auth
   /v1/users/verify/{code}:
     post:
       description: This api is for Create user
@@ -181,5 +205,5 @@ paths:
             $ref: '#/definitions/model.Code'
       summary: Create an account
       tags:
-      - user
+      - auth
 swagger: "2.0"

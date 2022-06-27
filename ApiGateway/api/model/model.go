@@ -49,3 +49,7 @@ type Login struct {
 	EmailAddress string `json:"email_address"`
 	Password     string `json:"password"`
 }
+type LoginRes struct {
+	UserData User
+	Token    string
+}

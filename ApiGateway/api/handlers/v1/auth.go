@@ -5,7 +5,9 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/gomodule/redigo/redis"
+	uuid "github.com/satori/go.uuid"
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
+	jwt "github.com/venomuz/service-api-swag-gin/ApiGateway/api/token"
 	pb "github.com/venomuz/service-api-swag-gin/ApiGateway/genproto"
 	l "github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/mail"
@@ -20,7 +22,7 @@ import (
 // CheckReg CheckUserAnd creates users
 // @Summary      Create an account with check
 // @Description  This api is for creating user
-// @Tags         user
+// @Tags         auth
 // @Accept       json
 // @Produce      json
 // @Param 		 user  body model.User true "user body"
@@ -94,6 +96,14 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		return
 	}
 
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to token", l.Error(err))
+		return
+	}
+
 	err = h.redisStorage.SetWithTTL(str, string(info), 500)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
@@ -108,7 +118,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 // Verify CheckReg Check and post
 // @Summary      Create an account
 // @Description  This api is for Create user
-// @Tags         user
+// @Tags         auth
 // @Produce      json
 // @Param        code   path      string  true  "Verify Code"
 // @Success      200  {object}  model.Code
@@ -142,6 +152,15 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		h.log.Error("failed to unmarshal", l.Error(err))
 		return
 	}
+	id := uuid.NewV4()
+	h.jwtHandler = jwt.JwtHendler{
+		Sub:  id.String(),
+		Iss:  "client",
+		Role: "authorized",
+		Log:  h.log,
+	}
+	//access, refresh, err := h.jwtHandler.GenerateAuthJWT()
+
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
 	defer cancel()
 	_, err = h.serviceManager.UserService().Create(ctx, &body)
@@ -152,4 +171,17 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		h.log.Error("failed to posting to db", l.Error(err))
 		return
 	}
+}
+
+// Login user
+// @Summary      Logging to account
+// @Description  This api is for login user
+// @Tags         auth
+// @Produce      json
+// @Param        Email   path      string  true  "Your mail for login"
+// @Param        Password   path      string  true  "Your password for login"
+// @Success      200  {object}  model.LoginRes
+// @Router       /users/login [get]
+func (h *handlerV1) Login(c *gin.Context) {
+
 }

@@ -1,4 +1,4 @@
-module github.com/venomuz/service_api_swag_gin/UserService
+module github.com/venomuz/service-api-swag-gin/UserService
 
 go 1.18
 
@@ -9,7 +9,7 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/spf13/cast v1.5.0
 	go.uber.org/zap v1.21.0
-	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
+	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 	google.golang.org/grpc v1.47.0
 )
 

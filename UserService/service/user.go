@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
 	uuid "github.com/satori/go.uuid"
-	pb "github.com/venomuz/service_api_swag_gin/UserService/genproto"
-	l "github.com/venomuz/service_api_swag_gin/UserService/pkg/logger"
-	cl "github.com/venomuz/service_api_swag_gin/UserService/service/grpc_client"
-	"github.com/venomuz/service_api_swag_gin/UserService/storage"
+	pb "github.com/venomuz/service-api-swag-gin/UserService/genproto"
+	l "github.com/venomuz/service-api-swag-gin/UserService/pkg/logger"
+	cl "github.com/venomuz/service-api-swag-gin/UserService/service/grpc_client"
+	"github.com/venomuz/service-api-swag-gin/UserService/storage"
 	"golang.org/x/crypto/bcrypt"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -154,8 +154,18 @@ func (s *UserService) CheckLoginMail(_ context.Context, check *pb.Check) (*pb.Ok
 	get, err := s.storage.User().CheckValidLoginMail(check.Key, check.Value)
 	if err != nil {
 		fmt.Println(err)
-		s.logger.Error("Error while getting post info", l.Error(err))
-		return nil, status.Error(codes.Internal, "Error insert post")
+		s.logger.Error("Error while getting user info", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert v")
 	}
 	return &pb.Okay{Status: get}, err
+}
+func (s *UserService) Login(ctx context.Context, request *pb.LoginRequest) (*pb.LoginResponse, error) {
+	res, id, err := s.storage.User().Login(request.Mail, request.Password)
+	if err != nil {
+		fmt.Println(err)
+		s.logger.Error("Error while getting user info", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert v")
+	}
+
+	return &pb.LoginResponse{Check: res}, nil
 }

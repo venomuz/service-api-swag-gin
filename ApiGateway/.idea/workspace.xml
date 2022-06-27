@@ -4,27 +4,47 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b01a7f4d-001c-49e5-a8a3-908d9138e6ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ApiGateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/API-GATEWAY.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="17291eb2-2387-42b0-87f1-b301fbbaa8bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/swagger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/v1/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/model/model.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/token/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/token/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/services.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/services.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/redis/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/redis/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/gen-proto.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gen-proto.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/pkg/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/repo/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/.idea/dataSources/185534a6-4ad0-4093-90dd-250c7faa29eb.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/genproto/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/pkg/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/service/grpc_client/grpc_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/repo/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserService/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,66 +55,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/api/router.go" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2AwHYNHZxdvq6dv5G3ZKOhbxv1l" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2B8sdLP8noBAnR8jSfqoDHHZ3Rw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/venom&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/kilogram&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="API-GATEWAY" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/venomuz/service-api-swag-gin/ApiGateway" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build github.com/venomuz/service-api-swag-gin/ApiGateway/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
-      <module name="ApiGateway" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/venomuz/service-api-swag-gin/ApiGateway/cmd" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="API-GATEWAY" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <package value="github.com/venomuz/service-api-swag-gin/ApiGateway" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -109,9 +95,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

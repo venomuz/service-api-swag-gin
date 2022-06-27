@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
 	uuid "github.com/satori/go.uuid"
-	pb "github.com/venomuz/service_api_swag_gin/PostService/genproto"
-	l "github.com/venomuz/service_api_swag_gin/PostService/pkg/logger"
-	"github.com/venomuz/service_api_swag_gin/PostService/storage"
+	pb "github.com/venomuz/service-api-swag-gin/PostService/genproto"
+	l "github.com/venomuz/service-api-swag-gin/PostService/pkg/logger"
+	"github.com/venomuz/service-api-swag-gin/PostService/storage"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

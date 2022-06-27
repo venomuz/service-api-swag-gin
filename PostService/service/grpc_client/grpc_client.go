@@ -1,7 +1,7 @@
 package grpcClient
 
 import (
-	"github.com/venomuz/service_api_swag_gin/PostService/config"
+	"github.com/venomuz/service-api-swag-gin/PostService/config"
 )
 
 //GrpcClientI ...

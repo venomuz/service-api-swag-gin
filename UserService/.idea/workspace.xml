@@ -5,9 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f77a1efa-53ba-4752-83b3-267f1a08c387" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migration/000001_first_migrate.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/000001_first_migrate.up.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migration/000002_type_changes.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migration/000002_type_changes.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/scripts/gen-proto.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/scripts/gen-proto.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/pkg/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/repo/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostService/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/185534a6-4ad0-4093-90dd-250c7faa29eb.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/grpc_client/grpc_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/repo/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,31 +66,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/venom",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kilogram&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="go build github.com/venomuz/service_api_swag_gin/UserService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="UserService" />

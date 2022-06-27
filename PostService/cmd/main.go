@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/venomuz/service_api_swag_gin/PostService/config"
-	pb "github.com/venomuz/service_api_swag_gin/PostService/genproto"
-	"github.com/venomuz/service_api_swag_gin/PostService/pkg/db"
-	"github.com/venomuz/service_api_swag_gin/PostService/pkg/logger"
-	"github.com/venomuz/service_api_swag_gin/PostService/service"
+	"github.com/venomuz/service-api-swag-gin/PostService/config"
+	pb "github.com/venomuz/service-api-swag-gin/PostService/genproto"
+	"github.com/venomuz/service-api-swag-gin/PostService/pkg/db"
+	"github.com/venomuz/service-api-swag-gin/PostService/pkg/logger"
+	"github.com/venomuz/service-api-swag-gin/PostService/service"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"net"

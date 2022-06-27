@@ -10,6 +10,7 @@ service UserService{
   rpc GetAllUserFromDb(Empty) returns (AllUser);
   rpc GetList(LimitRequest) returns (LimitResponse);
   rpc CheckLoginMail(Check) returns (okay);
+  rpc Login(LoginRequest) returns (LoginResponse);
 }
 
 message AllUser{
@@ -57,4 +58,13 @@ message LimitResponse{
 }
 message okay {
   bool status = 1;
+}
+message LoginRequest{
+  string mail = 1;
+  string password = 2;
+}
+message LoginResponse{
+  User  UserData = 1;
+  string  token  = 2;
+  bool  check = 3;
 }

@@ -1,4 +1,4 @@
-module github.com/venomuz/service_api_swag_gin/PostService
+module github.com/venomuz/service-api-swag-gin/PostService
 
 go 1.18
 

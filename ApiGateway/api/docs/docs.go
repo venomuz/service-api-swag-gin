@@ -16,6 +16,42 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/users/login": {
+            "get": {
+                "description": "This api is for login user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Logging to account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Your mail for login",
+                        "name": "Email",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Your password for login",
+                        "name": "Password",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Code"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/users": {
             "post": {
                 "description": "This api is for creating user",
@@ -60,7 +96,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user"
+                    "auth"
                 ],
                 "summary": "Create an account with check",
                 "parameters": [
@@ -91,7 +127,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user"
+                    "auth"
                 ],
                 "summary": "Create an account",
                 "parameters": [
