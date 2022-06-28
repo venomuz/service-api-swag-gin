@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gomodule/redigo/redis"
 	uuid "github.com/satori/go.uuid"
+	"github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	jwt "github.com/venomuz/service-api-swag-gin/ApiGateway/api/token"
 	pb "github.com/venomuz/service-api-swag-gin/ApiGateway/genproto"
@@ -96,14 +97,6 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		return
 	}
 
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": err.Error(),
-		})
-		h.log.Error("failed to token", l.Error(err))
-		return
-	}
-
 	err = h.redisStorage.SetWithTTL(str, string(info), 500)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
@@ -171,6 +164,8 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		h.log.Error("failed to posting to db", l.Error(err))
 		return
 	}
+	ok := model.Code{Codd: "Ok"}
+	c.JSON(http.StatusOK, ok)
 }
 
 // Login user
@@ -178,10 +173,16 @@ func (h *handlerV1) Verify(c *gin.Context) {
 // @Description  This api is for login user
 // @Tags         auth
 // @Produce      json
-// @Param        Email   path      string  true  "Your mail for login"
-// @Param        Password   path      string  true  "Your password for login"
+// @Param        email    query     string  false  "Email for login"  Format(email)
+// @Param        password    query     string  false  "Password for login"  Format(password)
 // @Success      200  {object}  model.LoginRes
-// @Router       /users/login [get]
+// @Router       /v1/users/login [get]
 func (h *handlerV1) Login(c *gin.Context) {
+	var jspbMarshal protojson.MarshalOptions
+	jspbMarshal.UseProtoNames = true
 
+	email := c.Query("email")
+	password := c.Query("password")
+
+	c.JSON(http.StatusOK, user)
 }

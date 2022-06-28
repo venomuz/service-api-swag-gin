@@ -24,6 +24,13 @@ definitions:
       id:
         type: string
     type: object
+  model.LoginRes:
+    properties:
+      token:
+        type: string
+      userData:
+        $ref: '#/definitions/model.User'
+    type: object
   model.Media:
     properties:
       id:
@@ -82,30 +89,6 @@ definitions:
 info:
   contact: {}
 paths:
-  /users/login:
-    get:
-      description: This api is for login user
-      parameters:
-      - description: Your mail for login
-        in: path
-        name: Email
-        required: true
-        type: string
-      - description: Your password for login
-        in: path
-        name: Password
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/model.Code'
-      summary: Logging to account
-      tags:
-      - auth
   /v1/users:
     post:
       consumes:
@@ -185,6 +168,30 @@ paths:
           schema:
             type: string
       summary: Create an account with check
+      tags:
+      - auth
+  /v1/users/login:
+    get:
+      description: This api is for login user
+      parameters:
+      - description: Email for login
+        format: email
+        in: query
+        name: email
+        type: string
+      - description: Password for login
+        format: password
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.LoginRes'
+      summary: Logging to account
       tags:
       - auth
   /v1/users/verify/{code}:

@@ -135,7 +135,7 @@ func (r *userRepo) CheckValidLoginMail(key, value string) (bool, error) {
 	}
 	return false, nil
 }
-func (r *userRepo) Login(mail, password string) (bool, error) {
+func (r *userRepo) Login(mail, password string) (bool, string, error) {
 	var (
 		c            int
 		UserPassword string
@@ -143,19 +143,23 @@ func (r *userRepo) Login(mail, password string) (bool, error) {
 	CheckQuery := `SELECT COUNT(*) FROM users WHERE email = $1`
 	err := r.db.QueryRow(CheckQuery, mail).Scan(&c)
 	if c > 0 || err != nil {
-		return false, err
+		return false, "", err
 	}
 	GetPasswordQuery := `SELECT password FROM users WHERE email = $1`
 	err = r.db.QueryRow(GetPasswordQuery, GetPasswordQuery).Scan(&UserPassword)
 	if err != nil {
-		return false, err
+		return false, "", err
 	}
 	err = bcrypt.CompareHashAndPassword([]byte(UserPassword), []byte(password))
 	if err != nil {
-		return false, err
+		return false, "", err
 	}
 	GetIdQuery := `SELECT id FROM users WHERE email = $1`
-err:
-	r.db.QueryRow(GetIdQuery, mail)
-	return true, nil
+	id := ""
+	err = r.db.QueryRow(GetIdQuery, mail).Scan(&id)
+	if err != nil {
+		return false, "", err
+	}
+
+	return true, id, nil
 }

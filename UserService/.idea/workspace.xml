@@ -5,46 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f77a1efa-53ba-4752-83b3-267f1a08c387" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/migration/000003_insert_into_types.down.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migration/000003_insert_into_types.up.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/model/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/scripts/gen-proto.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/scripts/gen-proto.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/token/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/token/jwt.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/genproto/user.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/pkg/db/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/grpc_client/grpc_client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/service/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/postgres/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/repo/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/storage/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/185534a6-4ad0-4093-90dd-250c7faa29eb.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/user.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/grpc_client/grpc_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/grpc_client/grpc_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/postgres/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/repo/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/repo/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +65,11 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="go build github.com/venomuz/service_api_swag_gin/UserService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+    <configuration name="go build github.com/venomuz/service-api-swag-gin/UserService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="UserService" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/venomuz/service_api_swag_gin/UserService/cmd" />
+      <package value="github.com/venomuz/service-api-swag-gin/UserService/cmd" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />

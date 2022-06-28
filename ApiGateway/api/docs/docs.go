@@ -16,42 +16,6 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/users/login": {
-            "get": {
-                "description": "This api is for login user",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "auth"
-                ],
-                "summary": "Logging to account",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Your mail for login",
-                        "name": "Email",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Your password for login",
-                        "name": "Password",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Code"
-                        }
-                    }
-                }
-            }
-        },
         "/v1/users": {
             "post": {
                 "description": "This api is for creating user",
@@ -115,6 +79,42 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/login": {
+            "get": {
+                "description": "This api is for login user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Logging to account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Email for login",
+                        "name": "email",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "format": "password",
+                        "description": "Password for login",
+                        "name": "password",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.LoginRes"
                         }
                     }
                 }
@@ -243,6 +243,17 @@ const docTemplate = `{
             "properties": {
                 "id": {
                     "type": "string"
+                }
+            }
+        },
+        "model.LoginRes": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "userData": {
+                    "$ref": "#/definitions/model.User"
                 }
             }
         },

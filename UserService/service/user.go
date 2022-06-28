@@ -154,7 +154,7 @@ func (s *UserService) CheckLoginMail(_ context.Context, check *pb.Check) (*pb.Ok
 	get, err := s.storage.User().CheckValidLoginMail(check.Key, check.Value)
 	if err != nil {
 		fmt.Println(err)
-		s.logger.Error("Error while getting user info", l.Error(err))
+		s.logger.Error("Error while CheckLoginMail user info", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error insert v")
 	}
 	return &pb.Okay{Status: get}, err
@@ -163,9 +163,10 @@ func (s *UserService) Login(ctx context.Context, request *pb.LoginRequest) (*pb.
 	res, id, err := s.storage.User().Login(request.Mail, request.Password)
 	if err != nil {
 		fmt.Println(err)
-		s.logger.Error("Error while getting user info", l.Error(err))
+		s.logger.Error("Error while get user via mail from db", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error insert v")
 	}
+	post, err := s.client.PostService().PostGetByID(ctx, &pb.GetIdFromUser{Id: id})
 
 	return &pb.LoginResponse{Check: res}, nil
 }

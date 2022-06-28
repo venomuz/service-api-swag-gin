@@ -47,3 +47,23 @@ func (QjwtHendler *JwtHendler) GenerateAuthJWT() (access, refresh string, err er
 	}
 	return access, refresh, nil
 }
+func (QJwtHandler *JwtHendler) ExtractClaims() (jwt.MapClaims, error) {
+	var (
+		token *jwt.Token
+		err   error
+	)
+	token, err = jwt.Parse(QJwtHandler.Token, func(t *jwt.Token) (interface{}, error) {
+		return []byte(QJwtHandler.SigninKey), nil
+	})
+
+	if err != nil {
+		return nil, err
+	}
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !(ok && token.Valid) {
+		QJwtHandler.Log.Error("invalid jwt token")
+		return nil, err
+	}
+
+	return claims, nil
+}
