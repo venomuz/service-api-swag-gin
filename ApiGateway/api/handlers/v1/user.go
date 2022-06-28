@@ -89,6 +89,7 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 // @Success      200  {object}  model.Id
 // @Router       /v1/users/{id} [delete]
 func (h *handlerV1) DeleteUser(c *gin.Context) {
+
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
 

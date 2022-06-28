@@ -50,6 +50,10 @@ type Login struct {
 	Password     string `json:"password"`
 }
 type LoginRes struct {
-	UserData User
+	UserData *User
 	Token    string
+	Refresh  string
+}
+type JwtReqMod struct {
+	Token string `json:"token"`
 }

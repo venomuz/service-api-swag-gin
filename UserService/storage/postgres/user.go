@@ -139,14 +139,17 @@ func (r *userRepo) Login(mail, password string) (bool, string, error) {
 	var (
 		c            int
 		UserPassword string
+		id           string
 	)
+
 	CheckQuery := `SELECT COUNT(*) FROM users WHERE email = $1`
 	err := r.db.QueryRow(CheckQuery, mail).Scan(&c)
-	if c > 0 || err != nil {
+	if c == 0 || err != nil {
 		return false, "", err
 	}
+
 	GetPasswordQuery := `SELECT password FROM users WHERE email = $1`
-	err = r.db.QueryRow(GetPasswordQuery, GetPasswordQuery).Scan(&UserPassword)
+	err = r.db.QueryRow(GetPasswordQuery, mail).Scan(&UserPassword)
 	if err != nil {
 		return false, "", err
 	}
@@ -155,7 +158,7 @@ func (r *userRepo) Login(mail, password string) (bool, string, error) {
 		return false, "", err
 	}
 	GetIdQuery := `SELECT id FROM users WHERE email = $1`
-	id := ""
+
 	err = r.db.QueryRow(GetIdQuery, mail).Scan(&id)
 	if err != nil {
 		return false, "", err

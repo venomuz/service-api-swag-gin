@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/gomodule/redigo/redis"
-	uuid "github.com/satori/go.uuid"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	jwt "github.com/venomuz/service-api-swag-gin/ApiGateway/api/token"
@@ -145,14 +144,14 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		h.log.Error("failed to unmarshal", l.Error(err))
 		return
 	}
-	id := uuid.NewV4()
-	h.jwtHandler = jwt.JwtHendler{
-		Sub:  id.String(),
-		Iss:  "client",
-		Role: "authorized",
-		Log:  h.log,
-	}
-	//access, refresh, err := h.jwtHandler.GenerateAuthJWT()
+	//id := uuid.NewV4()
+	//h.jwtHandler = jwt.JwtHendler{
+	//	Sub:  id.String(),
+	//	Iss:  ,
+	//	Role: "authorized",
+	//	Log:  h.log,
+	//}
+	////access, refresh, err := h.jwtHandler.GenerateAuthJWT()
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
 	defer cancel()
@@ -183,6 +182,31 @@ func (h *handlerV1) Login(c *gin.Context) {
 
 	email := c.Query("email")
 	password := c.Query("password")
-
-	c.JSON(http.StatusOK, user)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
+	defer cancel()
+	User, err := h.serviceManager.UserService().Login(ctx, &pb.LoginRequest{Mail: email, Password: password})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to login to db", l.Error(err))
+		return
+	}
+	h.jwtHandler = jwt.JwtHendler{
+		Sub:       User.UserData.Id,
+		Iss:       User.UserData.TypeId,
+		Role:      "authorized",
+		Log:       h.log,
+		SigninKey: h.cfg.SignInKey,
+	}
+	access, refresh, err := h.jwtHandler.GenerateAuthJWT()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to generate token", l.Error(err))
+		return
+	}
+	User.Token, User.Refresh = access, refresh
+	c.JSON(http.StatusOK, User)
 }

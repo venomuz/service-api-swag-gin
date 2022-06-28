@@ -64,5 +64,9 @@ message LoginRequest{
   string password = 2;
 }
 message LoginResponse{
-  bool  check = 1;
+  User  UserData = 1;
+  string  token  = 2;
+  string  refresh = 3;
+  bool  check = 4;
+
 }

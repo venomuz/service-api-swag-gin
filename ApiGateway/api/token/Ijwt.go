@@ -1,4 +1,4 @@
-package jwt
+package Ijwt
 
 import (
 	"github.com/dgrijalva/jwt-go"
@@ -8,7 +8,7 @@ import (
 
 type JwtHendler struct {
 	Sub       string
-	Iss       string
+	Iss       int64
 	Exp       string
 	Iat       string
 	Aud       []string
@@ -25,8 +25,8 @@ func (QjwtHendler *JwtHendler) GenerateAuthJWT() (access, refresh string, err er
 		refreshToken *jwt.Token
 		claims       jwt.MapClaims
 	)
-	accessToken = jwt.New(jwt.SigningMethodES256)
-	refreshToken = jwt.New(jwt.SigningMethodES256)
+	accessToken = jwt.New(jwt.SigningMethodHS256)
+	refreshToken = jwt.New(jwt.SigningMethodHS256)
 
 	claims = accessToken.Claims.(jwt.MapClaims)
 	claims["iss"] = QjwtHendler.Iss

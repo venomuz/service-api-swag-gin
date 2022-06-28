@@ -73,8 +73,6 @@ func (s *UserService) GetByID(ctx context.Context, req *pb.GetIdFromUser) (*pb.U
 		return nil, status.Error(codes.Internal, "Error insert user")
 	}
 
-	_, err = s.client.PostService().PostGetByID(ctx, req)
-
 	post, err := s.client.PostService().PostGetAllPosts(ctx, req)
 	user.Posts = post.Posts
 	return user, err
@@ -159,6 +157,7 @@ func (s *UserService) CheckLoginMail(_ context.Context, check *pb.Check) (*pb.Ok
 	}
 	return &pb.Okay{Status: get}, err
 }
+
 func (s *UserService) Login(ctx context.Context, request *pb.LoginRequest) (*pb.LoginResponse, error) {
 	res, id, err := s.storage.User().Login(request.Mail, request.Password)
 	if err != nil {
@@ -166,7 +165,12 @@ func (s *UserService) Login(ctx context.Context, request *pb.LoginRequest) (*pb.
 		s.logger.Error("Error while get user via mail from db", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error insert v")
 	}
-	post, err := s.client.PostService().PostGetByID(ctx, &pb.GetIdFromUser{Id: id})
 
-	return &pb.LoginResponse{Check: res}, nil
+	user, err := s.storage.User().GetByID(id)
+	if err != nil {
+		fmt.Println(err)
+		s.logger.Error("Error while get user via id from db", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error insert v")
+	}
+	return &pb.LoginResponse{Check: res, UserData: user}, nil
 }
