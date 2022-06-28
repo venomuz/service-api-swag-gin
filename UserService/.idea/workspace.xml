@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f77a1efa-53ba-4752-83b3-267f1a08c387" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migration/000003_insert_into_types.down.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migration/000003_insert_into_types.up.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PostService/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PostService/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/token/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/token/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/postgres/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

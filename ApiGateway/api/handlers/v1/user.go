@@ -89,6 +89,7 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 // @Success      200  {object}  model.Id
 // @Router       /v1/users/{id} [delete]
 func (h *handlerV1) DeleteUser(c *gin.Context) {
+	CheckClaims(h, c)
 
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
@@ -97,7 +98,7 @@ func (h *handlerV1) DeleteUser(c *gin.Context) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
 	defer cancel()
 	fmt.Println(guid)
-	_, err := h.serviceManager.UserService().DeleteByID(
+	id, err := h.serviceManager.UserService().DeleteByID(
 		ctx, &pb.GetIdFromUserID{Id: guid})
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
@@ -106,7 +107,6 @@ func (h *handlerV1) DeleteUser(c *gin.Context) {
 		h.log.Error("failed to get user", l.Error(err))
 		return
 	}
-	_ = h.redisStorage.Set("123qwe", "123")
-	res, _ := h.redisStorage.Get("qwe")
-	c.JSON(http.StatusOK, res)
+
+	c.JSON(http.StatusOK, id)
 }

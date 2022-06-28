@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fbf40c-650c-444b-b342-e9ecbb4dae4c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/genproto/user.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/user.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/service/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/storage/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +46,11 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="go build github.com/venomuz/service_api_swag_gin/PostService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+    <configuration name="go build github.com/venomuz/service-api-swag-gin/PostService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="PostService" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/venomuz/service_api_swag_gin/PostService/cmd" />
+      <package value="github.com/venomuz/service-api-swag-gin/PostService/cmd" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
