@@ -26,6 +26,8 @@ definitions:
     type: object
   model.LoginRes:
     properties:
+      refresh:
+        type: string
       token:
         type: string
       userData:
@@ -127,6 +129,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Id'
+      security:
+      - BearerAuth: []
       summary: Delete an account
       tags:
       - user
@@ -213,4 +217,10 @@ paths:
       summary: Create an account
       tags:
       - auth
+securityDefinitions:
+  BearerAuth:
+    description: GetMyProfile
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

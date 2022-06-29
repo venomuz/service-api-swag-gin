@@ -178,6 +178,11 @@ const docTemplate = `{
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "description": "This api is for delete user",
                 "produces": [
                     "application/json"
@@ -249,6 +254,9 @@ const docTemplate = `{
         "model.LoginRes": {
             "type": "object",
             "properties": {
+                "refresh": {
+                    "type": "string"
+                },
                 "token": {
                     "type": "string"
                 },
@@ -340,6 +348,14 @@ const docTemplate = `{
                     "type": "integer"
                 }
             }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "description": "GetMyProfile",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
         }
     }
 }`

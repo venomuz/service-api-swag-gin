@@ -166,6 +166,11 @@
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "description": "This api is for delete user",
                 "produces": [
                     "application/json"
@@ -237,6 +242,9 @@
         "model.LoginRes": {
             "type": "object",
             "properties": {
+                "refresh": {
+                    "type": "string"
+                },
                 "token": {
                     "type": "string"
                 },
@@ -328,6 +336,14 @@
                     "type": "integer"
                 }
             }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "description": "GetMyProfile",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
         }
     }
 }

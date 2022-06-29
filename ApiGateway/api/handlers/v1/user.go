@@ -84,6 +84,7 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 // @Summary      Delete an account
 // @Description  This api is for delete user
 // @Tags         user
+// @Security BearerAuth
 // @Produce      json
 // @Param        id   path      string  true  "Account ID"
 // @Success      200  {object}  model.Id

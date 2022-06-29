@@ -19,6 +19,12 @@ type Option struct {
 	RedisRepo      repo.RepositoryStorage
 }
 
+// New @BasePath /v1
+// New ...
+// @SecurityDefinitions.apikey BearerAuth
+// @Description GetMyProfile
+// @in header
+// @name Authorization
 func New(option Option) *gin.Engine {
 	router := gin.New()
 
