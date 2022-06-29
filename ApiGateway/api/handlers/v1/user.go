@@ -89,8 +89,14 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 // @Success      200  {object}  model.Id
 // @Router       /v1/users/{id} [delete]
 func (h *handlerV1) DeleteUser(c *gin.Context) {
-	CheckClaims(h, c)
-
+	_, err := CheckClaims(h, c)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to auth token", l.Error(err))
+		return
+	}
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
 

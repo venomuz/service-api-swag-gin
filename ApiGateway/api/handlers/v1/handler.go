@@ -40,7 +40,7 @@ func New(c *HandlerV1Config) *handlerV1 {
 		jwtHandler:     c.jwtHandler,
 	}
 }
-func CheckClaims(h *handlerV1, c *gin.Context) jwt.MapClaims {
+func CheckClaims(h *handlerV1, c *gin.Context) (jwt.MapClaims, error) {
 	var (
 		ErrUnauthorized = errors.New("unauthorized")
 		authorization   model.JwtReqMod
@@ -59,7 +59,7 @@ func CheckClaims(h *handlerV1, c *gin.Context) jwt.MapClaims {
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, ErrUnauthorized)
 		h.log.Error("token is invalid:", logger.Error(err))
-		return nil
+		return nil, err
 	}
-	return claims
+	return claims, nil
 }
