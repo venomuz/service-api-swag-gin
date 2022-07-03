@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	gormadapter "github.com/casbin/gorm-adapter/v2"
 	"github.com/gomodule/redigo/redis"
+
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/api"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/config"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
@@ -13,7 +15,15 @@ import (
 func main() {
 	cfg := config.Load()
 	log := logger.New(cfg.LogLevel, "api_gateway")
+	psqlString := fmt.Sprintf("host=%s port=%d user=%s password=%s database=%s",
+		cfg.PostgresHost,
+		cfg.PostgresPort,
+		cfg.PostgresUser,
+		cfg.PostgresPassword,
+		cfg.PostgresDatabase,
+	)
 
+	db, err := gormadapter.NewAdapter("", psqlString)
 	serviceManager, err := services.NewServiceManager(&cfg)
 	if err != nil {
 		log.Error("gRPC dial error", logger.Error(err))

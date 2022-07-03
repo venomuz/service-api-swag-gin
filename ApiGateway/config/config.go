@@ -10,8 +10,13 @@ import (
 type Config struct {
 	Environment string // develop, staging, production
 
-	UserServiceHost string
-	UserServicePort int
+	UserServiceHost  string
+	UserServicePort  int
+	PostgresHost     string
+	PostgresPort     int
+	PostgresUser     string
+	PostgresPassword string
+	PostgresDatabase string
 	// context timeout in seconds
 	CtxTimeout int
 	LogLevel   string

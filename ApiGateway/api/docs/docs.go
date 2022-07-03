@@ -84,6 +84,31 @@ const docTemplate = `{
                 }
             }
         },
+        "/v1/users/get": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "This api is for login user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Get without  to account",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/users/login": {
             "get": {
                 "description": "This api is for login user",

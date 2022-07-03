@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fbf40c-650c-444b-b342-e9ecbb4dae4c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ApiGateway/config/rbac_model.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,24 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kilogram&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/kilogram",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="go build github.com/venomuz/service-api-swag-gin/PostService/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="PostService" />
@@ -72,6 +81,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

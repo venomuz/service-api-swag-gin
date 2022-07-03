@@ -144,14 +144,6 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		h.log.Error("failed to unmarshal", l.Error(err))
 		return
 	}
-	//id := uuid.NewV4()
-	//h.jwtHandler = jwt.JwtHendler{
-	//	Sub:  id.String(),
-	//	Iss:  ,
-	//	Role: "authorized",
-	//	Log:  h.log,
-	//}
-	////access, refresh, err := h.jwtHandler.GenerateAuthJWT()
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
 	defer cancel()
@@ -209,4 +201,39 @@ func (h *handlerV1) Login(c *gin.Context) {
 	}
 	User.Token, User.Refresh = access, refresh
 	c.JSON(http.StatusOK, User)
+}
+
+// GetUserWithToken user
+// @Summary      Get without  to account
+// @Description  This api is for login user
+// @Security BearerAuth
+// @Tags         auth
+// @Produce      json
+// @Success      200  {object}  model.User
+// @Router       /v1/users/get [get]
+func (h *handlerV1) GetUserWithToken(c *gin.Context) {
+	var jspbMarshal protojson.MarshalOptions
+	jspbMarshal.UseProtoNames = true
+	_, err := CheckClaims(h, c)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to auth token", l.Error(err))
+		return
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
+	defer cancel()
+
+	response, err := h.serviceManager.UserService().GetByID(
+		ctx, &pb.GetIdFromUser{Id: h.jwtHandler.Sub})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		h.log.Error("failed to get user", l.Error(err))
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
 }

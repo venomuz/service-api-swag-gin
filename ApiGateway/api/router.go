@@ -45,6 +45,7 @@ func New(option Option) *gin.Engine {
 	api.POST("/users/check", handlerV1.CheckReg)
 	api.POST("/users/verify/:code", handlerV1.Verify)
 	api.GET("/users/login", handlerV1.Login)
+	api.GET("/users/get", handlerV1.GetUserWithToken)
 
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.Run()
