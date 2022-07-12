@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f77a1efa-53ba-4752-83b3-267f1a08c387" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ApiGateway/config/rbac_model.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/docs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/docs/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/api/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ApiGateway/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

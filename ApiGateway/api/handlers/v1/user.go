@@ -6,7 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	pb "github.com/venomuz/service-api-swag-gin/ApiGateway/genproto"
-	l "github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"google.golang.org/protobuf/encoding/protojson"
 	"net/http"
 	"time"
@@ -33,7 +32,7 @@ func (h *handlerV1) CreateUser(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to bind json", l.Error(err))
+		h.log.Error("failed to bind json", logger.Error(err))
 		return
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
@@ -44,7 +43,7 @@ func (h *handlerV1) CreateUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to create user", l.Error(err))
+		h.log.Error("failed to create user", logger.Error(err))
 		return
 	}
 
@@ -73,7 +72,7 @@ func (h *handlerV1) GetUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to get user", l.Error(err))
+		h.log.Error("failed to get user", logger.Error(err))
 		return
 	}
 
@@ -95,7 +94,7 @@ func (h *handlerV1) DeleteUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to auth token", l.Error(err))
+		h.log.Error("failed to auth token", logger.Error(err))
 		return
 	}
 	var jspbMarshal protojson.MarshalOptions
@@ -111,7 +110,7 @@ func (h *handlerV1) DeleteUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to get user", l.Error(err))
+		h.log.Error("failed to get user", logger.Error(err))
 		return
 	}
 

@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17291eb2-2387-42b0-87f1-b301fbbaa8bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config/rbac_model.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/docs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/docs/swagger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/handlers/v1/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/token/Ijwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/token/Ijwt.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/const.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/logger.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/util.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/zap.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -42,21 +42,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/kilogram"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kilogram&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="go build github.com/venomuz/service-api-swag-gin/ApiGateway/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="ApiGateway" />

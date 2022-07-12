@@ -9,7 +9,7 @@ import (
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	jwt "github.com/venomuz/service-api-swag-gin/ApiGateway/api/token"
 	pb "github.com/venomuz/service-api-swag-gin/ApiGateway/genproto"
-	l "github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
+	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/mail"
 	pass "github.com/wagslane/go-password-validator"
 	"google.golang.org/protobuf/encoding/protojson"
@@ -41,7 +41,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to bind json", l.Error(err))
+		h.log.Error("failed to bind json", logger.Error(err))
 		return
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
@@ -52,7 +52,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to check user", l.Error(err))
+		h.log.Error("failed to check user", logger.Error(err))
 		return
 	}
 
@@ -61,7 +61,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to check user", l.Error(err))
+		h.log.Error("failed to check user", logger.Error(err))
 		return
 	}
 
@@ -71,7 +71,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to valid password user", l.Error(err))
+		h.log.Error("failed to valid password user", logger.Error(err))
 		return
 	}
 
@@ -83,7 +83,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"error": err.Error(),
 			})
-			h.log.Error("failed to send user", l.Error(err))
+			h.log.Error("failed to send user", logger.Error(err))
 			return
 		}
 	}
@@ -92,7 +92,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to marshal", l.Error(err))
+		h.log.Error("failed to marshal", logger.Error(err))
 		return
 	}
 
@@ -101,7 +101,7 @@ func (h *handlerV1) CheckReg(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to setting to redis user", l.Error(err))
+		h.log.Error("failed to setting to redis user", logger.Error(err))
 		return
 	}
 	c.JSON(http.StatusOK, response)
@@ -125,7 +125,7 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to get from redis user", l.Error(err))
+		h.log.Error("failed to get from redis user", logger.Error(err))
 		return
 	}
 	ff, err := redis.String(res, err)
@@ -133,7 +133,7 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to change to string user", l.Error(err))
+		h.log.Error("failed to change to string user", logger.Error(err))
 		return
 	}
 	err = json.Unmarshal([]byte(ff), &body)
@@ -141,7 +141,7 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to unmarshal", l.Error(err))
+		h.log.Error("failed to unmarshal", logger.Error(err))
 		return
 	}
 
@@ -152,7 +152,7 @@ func (h *handlerV1) Verify(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to posting to db", l.Error(err))
+		h.log.Error("failed to posting to db", logger.Error(err))
 		return
 	}
 	ok := model.Code{Codd: "Ok"}
@@ -181,7 +181,7 @@ func (h *handlerV1) Login(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to login to db", l.Error(err))
+		h.log.Error("failed to login to db", logger.Error(err))
 		return
 	}
 	h.jwtHandler = jwt.JwtHendler{
@@ -196,7 +196,7 @@ func (h *handlerV1) Login(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to generate token", l.Error(err))
+		h.log.Error("failed to generate token", logger.Error(err))
 		return
 	}
 	User.Token, User.Refresh = access, refresh
@@ -219,7 +219,7 @@ func (h *handlerV1) GetUserWithToken(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to auth token", l.Error(err))
+		h.log.Error("failed to auth token", logger.Error(err))
 		return
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(h.cfg.CtxTimeout))
@@ -231,7 +231,7 @@ func (h *handlerV1) GetUserWithToken(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-		h.log.Error("failed to get user", l.Error(err))
+		h.log.Error("failed to get user", logger.Error(err))
 		return
 	}
 

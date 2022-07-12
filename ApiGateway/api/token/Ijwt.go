@@ -2,7 +2,7 @@ package Ijwt
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
+	"github.com/venomuz/crm-go/pkg/logger"
 	"time"
 )
 

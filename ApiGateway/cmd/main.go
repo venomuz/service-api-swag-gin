@@ -4,10 +4,10 @@ import (
 	"fmt"
 	gormadapter "github.com/casbin/gorm-adapter/v2"
 	"github.com/gomodule/redigo/redis"
+	"github.com/venomuz/crm-go/pkg/logger"
 
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/api"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/config"
-	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"github.com/venomuz/service-api-swag-gin/ApiGateway/services"
 	rds "github.com/venomuz/service-api-swag-gin/ApiGateway/storage/redis"
 )
@@ -23,7 +23,7 @@ func main() {
 		cfg.PostgresDatabase,
 	)
 
-	db, err := gormadapter.NewAdapter("", psqlString)
+	_, err := gormadapter.NewAdapter("", psqlString)
 	serviceManager, err := services.NewServiceManager(&cfg)
 	if err != nil {
 		log.Error("gRPC dial error", logger.Error(err))
