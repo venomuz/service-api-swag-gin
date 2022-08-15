@@ -38,7 +38,7 @@ func Load() Config {
 	c.UserServicePort = cast.ToInt(getOrReturnDefault("USER_SERVICE_PORT", 8899))
 	c.SignInKey = cast.ToString(getOrReturnDefault("SIGNING_KEY", "d2Ak1VlsacoYmqWNTL6lJ9Ej5sZuyQObS97LAzLp1eOxP6Z3Ixx1Dpt0f3xwpUguew2wZA7nvB2qF218YxFDXMuVnWHZcb9ED"))
 	c.CtxTimeout = cast.ToInt(getOrReturnDefault("CTX_TIMEOUT", 7))
-	c.RedisHost = cast.ToString(getOrReturnDefault("REDIS_HOST", "localhost"))
+	c.RedisHost = cast.ToString(getOrReturnDefault("REDIS_HOST", "redisdb"))
 	c.RedisPort = cast.ToInt(getOrReturnDefault("REDIS_PORT", 6379))
 	return c
 }

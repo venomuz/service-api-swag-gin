@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/venomuz/service-api-swag-gin/ApiGateway/api/model"
 	pb "github.com/venomuz/service-api-swag-gin/ApiGateway/genproto"
+	"github.com/venomuz/service-api-swag-gin/ApiGateway/pkg/logger"
 	"google.golang.org/protobuf/encoding/protojson"
 	"net/http"
 	"time"

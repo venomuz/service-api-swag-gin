@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17291eb2-2387-42b0-87f1-b301fbbaa8bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/v1/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/v1/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/token/Ijwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/token/Ijwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/const.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/logger.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/util.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/zap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PostService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserService/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="17291eb2-2387-42b0-87f1-b301fbbaa8bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
